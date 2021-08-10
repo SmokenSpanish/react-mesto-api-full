@@ -1,0 +1,14 @@
+.popup__image-container{
+    font-family: inter, Arial, Helvetica, sans-serif;
+    width: 100%;
+    max-width: 433px;
+    height: 540px;
+    position: relative;
+}
+
+@media all and (max-width: 550px){
+    .popup__image-container{
+        max-width: 240px;
+        height: 299px;
+    }
+}

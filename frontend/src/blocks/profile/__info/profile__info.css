@@ -1,0 +1,13 @@
+.profile__info{
+    color: white;
+    display: grid;
+    grid-template-areas: 'name button'
+                        'about about';
+    gap: 16px 18px;
+}
+
+@media all and (max-width: 588px){
+    .profile__info{
+        gap: 14px 10px;
+    }
+}

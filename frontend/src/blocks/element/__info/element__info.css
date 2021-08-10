@@ -1,0 +1,9 @@
+.element__info{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 15px;
+    padding-left: 21px;
+    padding-top: 25px;
+    padding-bottom: 22px;
+    box-sizing: border-box;
+}

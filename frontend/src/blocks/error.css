@@ -1,0 +1,8 @@
+.error{
+    position: absolute;
+    color: red;
+    top: 30px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}

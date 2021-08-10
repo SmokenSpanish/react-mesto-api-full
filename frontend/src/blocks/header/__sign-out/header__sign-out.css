@@ -1,0 +1,16 @@
+.header__sign-out {
+    margin: 0;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 400;
+    text-align: right;
+    color: #a9a9a9;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.2s linear;
+  }
+  
+  .header__sign-out:hover {
+    opacity: 0.6;
+  } 

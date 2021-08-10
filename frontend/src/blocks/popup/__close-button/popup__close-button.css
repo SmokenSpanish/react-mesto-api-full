@@ -1,0 +1,24 @@
+.popup__close-button{
+    background-image: url('../../../images/CLOSEICON.svg');
+    background-size: cover;
+    border: none;
+    background-color: rgba(230, 11, 11, 0);
+    cursor: pointer;
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    top: -11%;
+    right: -9%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media all and (max-width: 600px){
+    .popup__close-button{
+        width: 26px;
+        height: 26px;
+        top: -15%;
+        right: 1%;
+    }
+}
