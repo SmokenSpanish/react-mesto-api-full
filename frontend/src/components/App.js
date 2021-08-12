@@ -221,7 +221,6 @@ function App() {
     setIsConfirmPopupOpen(false);
     setInfoTooltipOpen(false);
     setSelectedCard(null);
-    // setIsLoading(false);
     setIdCardForDelete(null);
     setInfoTooltipImage('');
     setStatus('');

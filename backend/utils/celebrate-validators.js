@@ -1,4 +1,12 @@
-const { celebrate, Joi } = require('celebrate');
+const { celebrate, Joi, CelebrateError } = require('celebrate');
+const validator = require('validator');
+
+const urlValidation = (value) => {
+  if (!validator(value)) {
+    throw new CelebrateError('Некорректный URL');
+  }
+  return value;
+};
 
 const createUserValidator = celebrate({
   body: Joi.object().keys({
@@ -48,7 +56,7 @@ const createUserValidator = celebrate({
       }),
     avatar: Joi
       .string()
-      .regex(/https?:\/\/(www\.)?([-\w.:])+([-\w._~:/?#[\]@!$&'()*+,;=])*/i)
+      .custom(urlValidation)
       .label('URL')
       .messages({
         'string.base': '{#label} должен быть строкой',
@@ -135,7 +143,7 @@ const updateAvatarValidator = celebrate({
   body: Joi.object().keys({
     avatar: Joi
       .string()
-      .regex(/https?:\/\/(www\.)?([-\w.:])+([-\w._~:/?#[\]@!$&'()*+,;=])*/i)
+      .custom(urlValidation)
       .required()
       .label('URL')
       .messages({
@@ -164,7 +172,7 @@ const createCardValidator = celebrate({
       }),
     link: Joi
       .string()
-      .regex(/https?:\/\/(www\.)?([-\w.:])+([-\w._~:/?#[\]@!$&'()*+,;=])*/i)
+      .custom(urlValidation)
       .required()
       .label('URL')
       .messages({
