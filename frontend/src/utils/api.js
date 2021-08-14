@@ -1,6 +1,6 @@
 // const BASE_URL = 'https://api.spanish.students.nomoredomains.monster';
 // const BASE_URL = 'http://localhost:3000';
-const BASE_URL = `${window.location.protocol}${process.env.REACT_APP_API_URL || '//localhost:3001'}`
+const BASE_URL = `${window.location.protocol}${process.env.REACT_APP_API_URL || '//localhost:3000'}`
 class Api {
     constructor(options) {
         this.baseUrl = options.baseUrl;
