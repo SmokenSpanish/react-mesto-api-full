@@ -143,7 +143,7 @@ const updateAvatarValidator = celebrate({
   body: Joi.object().keys({
     avatar: Joi
       .string()
-      .regex(/https?:\/\/(www\.)?([-\w.:])+([-\w._~:/?#[\]@!$&'()*+,;=])*/i)
+      .custom(urlValidation)
       .required()
       .label('URL')
       .messages({

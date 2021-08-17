@@ -218,22 +218,6 @@ function App() {
         });
 }
 
-  // const handleUpdateAvatar = ({ avatar }) => {
-  //   setIsLoading(true);
-  //   api
-  //     .changeUserAvatar(avatar)
-  //     .then((newUser) => {
-  //       setCurrentUser(newUser);
-  //       setIsLoading(false);
-  //       closeAllPopups();
-  //     })
-  //     .catch((err) => {
-  //       console.log('handleUpdateAvatar', err);
-  //     }).finally(() => {
-  //       setIsLoading(false);
-  //     })
-  // };
-
   function handleUpdateAvatar(data) {
     setIsLoading(true);
     api.changeUserAvatar(data)
