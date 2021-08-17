@@ -275,21 +275,36 @@ function App() {
       })
   };
 
-  const handleAddPlaceSubmit = (place) => {
+  // const handleAddPlaceSubmit = (place) => {
+  //   setIsLoading(true);
+  //   api
+  //     .postNewCard(place)
+  //     .then((newCard) => {
+  //       setCards([newCard, ...cards]);
+  //       setIsLoading(false);
+  //       closeAllPopups();
+  //     })
+  //     .catch((err) => {
+  //       console.log('handleAddPlaceSubmit', err);
+  //     }).finally(() => {
+  //       setIsLoading(false);
+  //     })
+  // };
+  function handleAddPlaceSubmit({name, link}) {
     setIsLoading(true);
-    api
-      .postNewCard(place)
-      .then((newCard) => {
-        setCards([newCard, ...cards]);
-        setIsLoading(false);
-        closeAllPopups();
-      })
-      .catch((err) => {
-        console.log('handleAddPlaceSubmit', err);
-      }).finally(() => {
-        setIsLoading(false);
-      })
-  };
+    api.postNewCard({name, link})
+        .then((newCard) => {
+            setCards([...cards, newCard]);
+            setIsLoading(false);
+            closeAllPopups();
+        })
+        .catch((err) => {
+            console.log(`Ошибка: ${err.message}!`);
+        })
+        .finally(() => {
+            setIsLoading(false);
+        });
+}
 
   return (
     <div className="page">
