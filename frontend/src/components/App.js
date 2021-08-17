@@ -278,9 +278,10 @@ function App() {
   const handleAddPlaceSubmit = (place) => {
     setIsLoading(true);
     api
-      .createCard(place)
+      .postNewCard(place)
       .then((newCard) => {
         setCards([newCard, ...cards]);
+        setIsLoading(false);
         closeAllPopups();
       })
       .catch((err) => {
