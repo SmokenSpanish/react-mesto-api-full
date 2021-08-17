@@ -50,27 +50,6 @@ function App() {
 
   const history = useHistory();
 
-  // const handleTokenCheck = React.useCallback(() => {
-  //   const jwt = localStorage.getItem('token');
-  //   if (jwt) {
-  //       auth.checkToken(jwt)
-  //           .then((res) => {
-  //               if (res.data) {
-  //                   setLoggedIn(true);
-  //                   setEmail(res.data.email);
-  //                   history.push('/');
-  //               }
-  //           })
-  //           .catch((err) => {
-  //               history.push('signin');
-  //               if (err === 400) {
-  //                   console.log(`Ошибка: ${err} - Не передано одно из полей`)
-  //               } else if (err === 401) {
-  //                   console.log(`Ошибка: ${err} - Пользователь с email не найден`)
-  //               }
-  //           })
-  //   }
-  // }, [history]);
   const handleCookiesCheck = React.useCallback(() => {
     auth.cookiesCheck()
       .then((res) => {
@@ -184,23 +163,6 @@ function App() {
     setIsConfirmPopupOpen(true);
   }
 
-  // function handleCardLike(card) {
-  //   // Снова проверяем, есть ли уже лайк на этой карточке
-  //   const isLiked = card.likes.some((i) => i._id === currentUser._id);
-
-  //   // Отправляем запрос в API и получаем обновлённые данные карточки
-  //   api
-  //     .changeLikeCardStatus(card._id, !isLiked)
-  //     .then((newCard) => {
-  //       setCards((state) =>
-  //         state.map((c) => (c._id === card._id ? newCard : c)),
-  //       );
-  //     })
-  //     .catch((err) => {
-  //       console.log('handleCardLike', err);
-  //     });
-  // }
-
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     api.changeLikeCardStatus(card._id, isLiked)
@@ -240,21 +202,6 @@ function App() {
     setStatus('');
   }
 
-  // const handleUpdateUser = (user) => {
-  //   setIsLoading(true);
-  //   api
-  //     .setUserInfo(user)
-  //     .then((newUser) => {
-  //       setCurrentUser(newUser);
-  //       closeAllPopups();
-  //     })
-  //     .catch((err) => {
-  //       console.log('handleUpdateUser', err);
-  //     }).finally(() => {
-  //       setIsLoading(false);
-  //     })
-  // };
-
   const handleUpdateUser = (currentUser) => {
     setIsLoading(true);
     api.editUserData(currentUser)
@@ -287,21 +234,7 @@ function App() {
       })
   };
 
-  // const handleAddPlaceSubmit = (place) => {
-  //   setIsLoading(true);
-  //   api
-  //     .postNewCard(place)
-  //     .then((newCard) => {
-  //       setCards([newCard, ...cards]);
-  //       setIsLoading(false);
-  //       closeAllPopups();
-  //     })
-  //     .catch((err) => {
-  //       console.log('handleAddPlaceSubmit', err);
-  //     }).finally(() => {
-  //       setIsLoading(false);
-  //     })
-  // };
+  
   function handleAddPlaceSubmit({name, link}) {
     setIsLoading(true);
     api.postNewCard({name, link})
