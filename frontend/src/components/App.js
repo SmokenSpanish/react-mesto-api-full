@@ -98,16 +98,18 @@ function App() {
     if (!loggedIn) {
       return;
   }
-    Promise.all([api.getUserInfo(), api.getCards()])
-      .then(([userData, cardsData]) => {
-        setCurrentUser(userData);
-        setCards(cardsData);
-        setEmail(userData.email);
-        history.push('/');
-      })
-      .catch((err) => {
-        console.log('Promise.all', err);
-      });
+    
+    Promise.all([api.getUserData(), api.getInitialCards()])
+            .then((values) => {
+                const [userData, initialCards] = values;
+                setCurrentUser(userData);
+                setCards(initialCards);
+                setEmail(userData.email);
+                history.push('/');
+            })
+            .catch((err) => {
+                console.log(`Ошибка: ${err.message}!`);
+            });
     }, [history, loggedIn]);
 
   function handleRegister(data) {
